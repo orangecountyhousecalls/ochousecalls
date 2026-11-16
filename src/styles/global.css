@@ -3,18 +3,18 @@
    Palette drawn from the gold OCH monogram: ink navy, champagne gold, ivory.
    ========================================================================== */
 :root {
-  --ink: #0e1b2a;
-  --ink-2: #152739;
-  --ink-3: #1e3550;
+  --ink: #142b47;
+  --ink-2: #1b385b;
+  --ink-3: #244772;
   --gold: #b8914a;
   --gold-2: #d6b878;
   --gold-3: #f1e3c0;
   --gold-grad: linear-gradient(135deg, #a9803a 0%, #e3c98e 48%, #b48b44 100%);
-  --ivory: #fbf8f2;
-  --sand: #f3ede1;
-  --line: #e7dfcf;
-  --text: #1d2733;
-  --muted: #5d6877;
+  --ivory: #fcfaf6;
+  --sand: #f4efe4;
+  --line: #e7dfd0;
+  --text: #1e2d3d;
+  --muted: #556577;
   --white: #fff;
   --success: #2f7d5b;
 
@@ -23,9 +23,9 @@
 
   --radius: 14px;
   --radius-lg: 22px;
-  --shadow-sm: 0 1px 2px rgba(14, 27, 42, .06), 0 2px 8px rgba(14, 27, 42, .05);
-  --shadow: 0 10px 30px -12px rgba(14, 27, 42, .25);
-  --shadow-lg: 0 30px 60px -20px rgba(14, 27, 42, .35);
+  --shadow-sm: 0 1px 2px rgba(20, 43, 71, .06), 0 2px 8px rgba(20, 43, 71, .05);
+  --shadow: 0 10px 30px -12px rgba(20, 43, 71, .20);
+  --shadow-lg: 0 30px 60px -20px rgba(20, 43, 71, .28);
   --ease: cubic-bezier(.2, .7, .2, 1);
   --container: 1200px;
   --header-h: 84px;
@@ -59,7 +59,10 @@ p { margin: 0 0 1.1em; }
 .narrow { width: min(100% - 2.5rem, 820px); margin-inline: auto; }
 .section { padding: clamp(4rem, 8vw, 7rem) 0; }
 .section--sand { background: var(--sand); }
-.section--ink { background: var(--ink); color: #d7dee7; }
+.section--ink {
+  background: radial-gradient(900px 420px at 85% 0%, rgba(214, 184, 120, .18), transparent 65%), linear-gradient(155deg, var(--ink) 0%, var(--ink-2) 55%, var(--ink-3) 100%);
+  color: #e2eaf3;
+}
 .section--ink h2, .section--ink h3 { color: var(--white); }
 .center { text-align: center; }
 

@@ -18,12 +18,14 @@ interface Props {
   modified?: string | null;
   cityContext?: { name: string; lat: number; lng: number };
 }
-const { title, description, image = '/images/og-default.jpg', type = 'website', schema = [], noindex = false, published, modified, cityContext } = Astro.props;
-const placeName = cityContext?.name ?? 'Aliso Viejo';
+const { title, description, image = '/images/og-image.jpg', type = 'website', schema = [], noindex = false, published, modified, cityContext } = Astro.props;
+const placeName = cityContext?.name ?? 'Orange County';
+const geoPlace = cityContext?.name ?? 'Aliso Viejo';
 const geoLat = cityContext?.lat ?? SITE.geo.lat;
 const geoLng = cityContext?.lng ?? SITE.geo.lng;
 const canonical = new URL(Astro.url.pathname, SITE.url).href;
 const ogImage = new URL(image, SITE.url).href;
+const ogAlt = `${SITE.name} — Concierge Medicine & House Call Doctor in ${placeName}, CA (${SITE.phone})`;
 const jsonLd = graph(...schema);
 ---
 <!doctype html>
@@ -42,9 +44,9 @@ const jsonLd = graph(...schema);
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'} />
-    <meta name="theme-color" content="#0e1b2a" />
+    <meta name="theme-color" content="#142b47" />
     <meta name="geo.region" content="US-CA" />
-    <meta name="geo.placename" content={placeName} />
+    <meta name="geo.placename" content={geoPlace} />
     <meta name="geo.position" content={`${geoLat};${geoLng}`} />
     <meta name="ICBM" content={`${geoLat}, ${geoLng}`} />
 
@@ -55,13 +57,18 @@ const jsonLd = graph(...schema);
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:image:alt" content={`${SITE.name} — concierge medicine and house calls in Aliso Viejo, CA`} />
+    <meta property="og:image:secure_url" content={ogImage} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogAlt} />
     {published && <meta property="article:published_time" content={published} />}
     {modified && <meta property="article:modified_time" content={modified} />}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={ogAlt} />
 
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon.png" />

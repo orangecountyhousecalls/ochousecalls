@@ -90,7 +90,7 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
 </div>
 
 <style>
-  .topbar { background: #000; color: #c9c9c9; font-size: .82rem; border-bottom: 1px solid rgba(214, 184, 120, .18); }
+  .topbar { background: #10233c; color: #dce5f0; font-size: .82rem; border-bottom: 1px solid rgba(214, 184, 120, .24); }
   .topbar__inner { display: flex; gap: 1.5rem; justify-content: space-between; align-items: center; min-height: 40px; }
   .topbar__item { display: inline-flex; align-items: center; gap: .45rem; color: inherit; text-decoration: none; }
   .topbar__item :global(svg) { color: var(--gold-2); }
@@ -100,11 +100,12 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
   @media (max-width: 520px) { .topbar__inner > :first-child { display: none; } .topbar__phone { margin: 0 auto; } }
 
   .site-header {
-    position: sticky; top: 0; z-index: 50; background: rgba(5, 5, 5, .96);
+    position: sticky; top: 0; z-index: 50;
+    background: linear-gradient(180deg, rgba(20, 43, 71, .97) 0%, rgba(25, 53, 86, .95) 100%);
     backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px);
-    border-bottom: 1px solid rgba(214, 184, 120, .22); transition: box-shadow .3s var(--ease);
+    border-bottom: 1px solid rgba(214, 184, 120, .28); transition: box-shadow .3s var(--ease);
   }
-  .site-header.is-scrolled { box-shadow: 0 10px 30px -12px rgba(0, 0, 0, .6); }
+  .site-header.is-scrolled { box-shadow: 0 10px 30px -12px rgba(16, 35, 60, .45); }
   .site-header__inner { display: flex; align-items: center; gap: 1.5rem; min-height: var(--header-h); }
   .brand { flex: none; display: block; }
   .brand :global(img) { width: 150px; height: auto; transition: width .3s var(--ease); }
@@ -115,10 +116,10 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
   .nav__item { position: relative; }
   .nav__link {
     display: inline-flex; align-items: center; gap: .25rem; padding: .6rem .7rem; border-radius: 10px;
-    font-size: .88rem; font-weight: 600; color: #fff; text-decoration: none; white-space: nowrap;
+    font-size: .88rem; font-weight: 600; color: #f4f7fb; text-decoration: none; white-space: nowrap;
     transition: color .2s var(--ease), background-color .2s var(--ease);
   }
-  .nav__link:hover, .nav__link.is-active, .has-dd:hover > .nav__link, .has-dd:focus-within > .nav__link { color: var(--gold-2); background: rgba(214, 184, 120, .12); }
+  .nav__link:hover, .nav__link.is-active, .has-dd:hover > .nav__link, .has-dd:focus-within > .nav__link { color: var(--gold-2); background: rgba(214, 184, 120, .14); }
   .nav__chev { transition: transform .25s var(--ease); }
   .dd {
     position: absolute; top: 100%; left: 50%; transform: translate(-50%, 8px); padding-top: .6rem;
@@ -127,13 +128,13 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
   .has-dd:hover .dd, .has-dd:focus-within .dd { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
   .has-dd:hover .nav__chev { transform: rotate(180deg); }
   .dd__list {
-    list-style: none; margin: 0; padding: .75rem; min-width: 260px; background: #0b0b0b; border: 1px solid rgba(214, 184, 120, .25);
-    border-radius: 16px; box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .7);
+    list-style: none; margin: 0; padding: .75rem; min-width: 260px; background: #16304f; border: 1px solid rgba(214, 184, 120, .32);
+    border-radius: 16px; box-shadow: 0 30px 60px -20px rgba(16, 35, 60, .55);
   }
   .dd__list--cols { columns: 2; column-gap: .5rem; min-width: 520px; }
   .dd__list li { break-inside: avoid; }
-  .dd__list a { display: block; padding: .55rem .8rem; border-radius: 10px; font-size: .88rem; color: #e8e8e8; text-decoration: none; }
-  .dd__list a:hover { background: rgba(214, 184, 120, .12); color: var(--gold-2); }
+  .dd__list a { display: block; padding: .55rem .8rem; border-radius: 10px; font-size: .88rem; color: #edf2f8; text-decoration: none; }
+  .dd__list a:hover { background: rgba(214, 184, 120, .15); color: var(--gold-2); }
 
   .header-cta { display: flex; align-items: center; gap: .5rem; flex: none; }
   .burger { display: none; width: 46px; height: 46px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, .22); background: transparent; color: #fff; cursor: pointer; place-items: center; }

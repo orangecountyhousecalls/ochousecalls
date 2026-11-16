@@ -11,12 +11,10 @@ import injuries from '../assets/home-injuries.jpg';
 import { SITE, MEMBERSHIP } from '../data/site';
 import { CITIES } from '../data/cities';
 import { REVIEWS } from '../data/reviews';
-import { pages } from '../lib/content';
 import { medicalWebPage, breadcrumb } from '../lib/schema';
 
-const page = pages['/'];
-const title = page.title;
-const description = page.description;
+const title = `Concierge Medicine & House Call Doctor in Orange County, CA | ${SITE.name}`;
+const description = `Same-day and next-day physician house calls, concierge medicine, and telemedicine across Orange County with board-certified Internist Dr. Sina Khaneki, MD, MPH. Open 7 days — call ${SITE.phone}.`;
 
 const pillars = [
   { icon: 'stethoscope', title: 'Concierge Medicine', text: 'Explore how concierge medicine provides convenient, customizable care to prevent and treat health conditions.', href: '/aliso-viejo-ca/concierge-medicine/', cta: 'Click To Learn More' },
@@ -359,11 +357,11 @@ const audiences = ['Busy professionals', 'Seniors & their families', 'Patients w
   </section>
 
   <!-- AREAS -->
-  <section class="section section--ink areas" aria-labelledby="areas-title">
+  <section class="section areas" aria-labelledby="areas-title">
     <div class="container center">
-      <p class="eyebrow">About</p>
+      <p class="eyebrow">Service Areas</p>
       <h2 id="areas-title">Concierge care, 24/7, across South Orange County</h2>
-      <p class="lede" style="color:#b9c4d1">{SITE.about}</p>
+      <p class="lede">{SITE.about}</p>
       <ul class="areas__list">{CITIES.map((c) => <li><a href={c.path}>{c.name}</a></li>)}</ul>
     </div>
   </section>
@@ -374,9 +372,9 @@ const audiences = ['Busy professionals', 'Seniors & their families', 'Patients w
   .hero { position: relative; min-height: min(88vh, 760px); display: flex; align-items: center; overflow: hidden; background: var(--ink); isolation: isolate; }
   .hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 20% center; z-index: -2; animation: heroZoom 18s ease-out both; }
   @keyframes heroZoom { from { transform: scale(1.08); } to { transform: scale(1); } }
-  .hero__shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(14,27,42,0) 18%, rgba(14,27,42,.55) 45%, rgba(14,27,42,.94) 62%, var(--ink) 100%); }
+  .hero__shade { position: absolute; inset: 0; z-index: -1; background: radial-gradient(800px 380px at 85% 15%, rgba(214,184,120,.18), transparent 65%), linear-gradient(90deg, rgba(20,43,71,0) 18%, rgba(20,43,71,.58) 45%, rgba(20,43,71,.94) 62%, var(--ink) 100%); }
   .hero__inner { display: flex; justify-content: flex-end; padding: 5rem 0; }
-  .hero__copy { max-width: 600px; color: #c9d3de; animation: rise 1s var(--ease) .15s both; }
+  .hero__copy { max-width: 600px; color: #dbe4ef; animation: rise 1s var(--ease) .15s both; }
   @keyframes rise { from { opacity: 0; transform: translateY(24px); } }
   .hero h1 { color: #fff; font-size: clamp(2.5rem, 5.2vw, 4.4rem); margin-bottom: 1.25rem; }
   .hero .eyebrow { color: var(--gold-2); }
@@ -394,7 +392,7 @@ const audiences = ['Busy professionals', 'Seniors & their families', 'Patients w
   @media (max-width: 900px) {
     .hero { min-height: auto; flex-direction: column; align-items: stretch; }
     .hero__img { position: relative; height: 54vw; min-height: 260px; object-position: 18% 20%; }
-    .hero__shade { background: linear-gradient(180deg, rgba(14,27,42,0) 0, rgba(14,27,42,0) calc(max(54vw, 260px) - 90px), var(--ink) max(54vw, 260px)); }
+    .hero__shade { background: linear-gradient(180deg, rgba(20,43,71,0) 0, rgba(20,43,71,0) calc(max(54vw, 260px) - 90px), var(--ink) max(54vw, 260px)); }
     .hero__inner { padding: 2rem 0 3.5rem; margin-top: 0; }
   }
 
@@ -463,14 +461,14 @@ const audiences = ['Busy professionals', 'Seniors & their families', 'Patients w
   .hc__ctas { display: flex; flex-wrap: wrap; gap: .75rem; }
 
   /* Story */
-  .story { background: #000; color: #e9e9e9; padding: clamp(3.5rem, 7vw, 5.5rem) 0; position: relative; overflow: hidden; }
-  .story::before { content: ''; position: absolute; inset: 0; background: radial-gradient(600px 260px at 15% 0%, rgba(214,184,120,.18), transparent 70%); }
-  .story__inner { position: relative; max-width: 900px; text-align: center; }
-  .story__mark { display: block; font-family: var(--font-display); font-size: 6rem; line-height: .6; height: 3rem; background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .story { background: linear-gradient(180deg, var(--sand) 0%, var(--ivory) 100%); color: var(--text); padding: clamp(3.5rem, 6vw, 5rem) 0; position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+  .story__inner { position: relative; max-width: 920px; text-align: center; background: var(--white); padding: clamp(2rem, 4vw, 3.25rem) clamp(1.5rem, 4vw, 3.5rem); border-radius: var(--radius-lg); border: 1px solid var(--line); border-top: 3px solid var(--gold); box-shadow: var(--shadow); }
+  .story__mark { display: block; font-family: var(--font-display); font-size: 5.5rem; line-height: .6; height: 2.6rem; background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .story blockquote { margin: 0; }
-  .story blockquote p { font-family: var(--font-display); font-size: clamp(1.3rem, 2.4vw, 1.8rem); line-height: 1.45; color: #fff; font-style: italic; }
-  .story footer { display: flex; flex-direction: column; align-items: center; gap: .5rem; margin-top: 1.5rem; }
-  .story cite { font-style: normal; font-weight: 700; color: var(--gold-2); font-size: .95rem; }
+  .story blockquote p { font-family: var(--font-display); font-size: clamp(1.25rem, 2.2vw, 1.7rem); line-height: 1.5; color: var(--ink); font-style: italic; }
+  .story footer { display: flex; flex-direction: column; align-items: center; gap: .45rem; margin-top: 1.35rem; }
+  .story .proof__stars { color: var(--gold); }
+  .story cite { font-style: normal; font-weight: 700; color: var(--ink-2); font-size: .95rem; }
 
   /* Compare */
   .compare { margin: 1.75rem 0 2rem; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: #fff; box-shadow: var(--shadow-sm); }
@@ -518,7 +516,7 @@ const audiences = ['Busy professionals', 'Seniors & their families', 'Patients w
   .svc-feature { position: relative; display: block; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 2 / 1; text-decoration: none; box-shadow: var(--shadow-sm); }
   .svc-feature :global(img) { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
   .svc-feature:hover :global(img) { transform: scale(1.05); }
-  .svc-feature span { position: absolute; inset: auto 0 0 0; padding: 1.25rem 1.5rem; background: linear-gradient(0deg, rgba(14,27,42,.92), rgba(14,27,42,0)); color: #dfe6ee; display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem .75rem; font-size: .92rem; }
+  .svc-feature span { position: absolute; inset: auto 0 0 0; padding: 1.25rem 1.5rem; background: linear-gradient(0deg, rgba(20,43,71,.92), rgba(20,43,71,0)); color: #e8eff7; display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem .75rem; font-size: .92rem; }
   .svc-feature strong { font-family: var(--font-display); font-size: 1.7rem; color: #fff; font-weight: 600; width: 100%; }
   .svc h3 { font-size: 1.5rem; }
 
@@ -538,8 +536,9 @@ const audiences = ['Busy professionals', 'Seniors & their families', 'Patients w
 
   .reviews { margin-top: 2.5rem; }
 
-  .areas .eyebrow { color: var(--gold-2); }
-  .areas__list { list-style: none; padding: 0; margin: 2rem auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; max-width: 900px; }
-  .areas__list a { display: inline-block; padding: .5rem 1rem; border-radius: 999px; border: 1px solid rgba(214,184,120,.35); color: #e6ebf1; font-size: .88rem; text-decoration: none; transition: border-color .2s, color .2s, background .2s; }
-  .areas__list a:hover { border-color: var(--gold-2); color: var(--gold-2); background: rgba(214,184,120,.1); }
+  .areas { background: var(--white); border-top: 1px solid var(--line); }
+  .areas .eyebrow { color: var(--gold); }
+  .areas__list { list-style: none; padding: 0; margin: 2rem auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; max-width: 920px; }
+  .areas__list a { display: inline-block; padding: .55rem 1.15rem; border-radius: 999px; background: var(--ivory); border: 1px solid var(--gold-2); color: var(--ink); font-size: .9rem; font-weight: 600; text-decoration: none; box-shadow: var(--shadow-sm); transition: border-color .2s, color .2s, background .2s, transform .2s; }
+  .areas__list a:hover { background: var(--ink); border-color: var(--ink); color: var(--gold-2); transform: translateY(-2px); }
 </style>
