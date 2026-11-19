@@ -54,7 +54,7 @@ const crumbs = [{ name: 'Home', path: '/' }, { name: 'Membership', path: '/membe
     <div class="narrow center reveal">
       <p class="eyebrow">Contact Us</p>
       <h2>Ready to get started?</h2>
-      <p class="lede">Orange County House Calls is located at <a href={SITE.directionsUrl} target="_blank" rel="noopener">{SITE.address.street}, {SITE.address.city}, {SITE.address.region} {SITE.address.postal}</a>.</p>
+      <p class="lede contact__line">Orange County House Calls is located at <a href={SITE.directionsUrl} target="_blank" rel="noopener">{SITE.address.street}, {SITE.address.city}, {SITE.address.region} {SITE.address.postal}</a>.</p>
       <a href={SITE.phoneHref} class="btn btn--gold"><Icon name="phone" /> {SITE.phone}</a>
     </div>
   </section>
@@ -81,4 +81,10 @@ const crumbs = [{ name: 'Home', path: '/' }, { name: 'Membership', path: '/membe
   @media (max-width: 640px) { .benefits { grid-template-columns: 1fr; } }
   .benefits li { display: flex; gap: .75rem; align-items: flex-start; font-size: .97rem; color: var(--text); }
   .benefits span { flex: none; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: rgba(214,184,120,.18); color: var(--gold); margin-top: .1rem; }
+  .contact__line { max-width: none; width: 100%; }
+  .contact__line a { white-space: nowrap; }
+  @media (min-width: 768px) { .contact__line { white-space: nowrap; } }
+  @media (max-width: 767px) {
+    .contact__line a { font-size: min(1em, calc((100vw - 3.25rem) / 20)); }
+  }
 </style>
