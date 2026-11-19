@@ -156,5 +156,9 @@ const profile = {
   .team__role { margin: -.2rem 0 1.1rem; font-size: .78rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
   .team .chips { margin-top: .4rem; }
   .team__signoff { margin: 1.35rem 0 0; font-family: var(--font-display); font-style: italic; font-size: clamp(1.25rem, 2vw, 1.55rem); line-height: 1.35; color: var(--ink); }
-  .team__call { margin: clamp(2rem, 4vw, 3rem) auto 0; text-align: center; }
+  .team__call { margin: clamp(2rem, 4vw, 3rem) auto 0; max-width: none; width: 100%; text-align: center; }
+  .team__call a { white-space: nowrap; }
+  @media (min-width: 768px) {
+    .team__call { white-space: nowrap; font-size: min(1.15rem, calc((100vw - 3.5rem) / 54)); }
+  }
 </style>
