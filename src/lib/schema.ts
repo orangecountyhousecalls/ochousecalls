@@ -16,13 +16,13 @@ const address = {
 };
 
 /** Site-wide graph: MedicalClinic + Physician + WebSite (included on every page) */
-export const baseGraph = (websiteDescription: string = SITE.tagline) => [
+export const baseGraph = (websiteDescription: string = SITE.tagline, clinicDescription: string = SITE.about) => [
   {
     '@type': ['MedicalClinic', 'MedicalBusiness', 'LocalBusiness'],
     '@id': ORG_ID,
     name: SITE.name,
     alternateName: SITE.legalName,
-    description: SITE.about,
+    description: clinicDescription,
     slogan: 'Personalized Medical Care, Delivered to Your Doorstep',
     url: `${SITE.url}/`,
     logo: `${SITE.url}/images/logo.png`,
@@ -168,7 +168,7 @@ export const article = (o: { path: string; title: string; description: string; p
   inLanguage: 'en-US',
 });
 
-export const graph = (nodes: readonly (object | null | undefined)[] = [], websiteDescription?: string) => ({
+export const graph = (nodes: readonly (object | null | undefined)[] = [], websiteDescription?: string, clinicDescription?: string) => ({
   '@context': 'https://schema.org',
-  '@graph': [...baseGraph(websiteDescription), ...nodes.filter(Boolean)],
+  '@graph': [...baseGraph(websiteDescription, clinicDescription), ...nodes.filter(Boolean)],
 });

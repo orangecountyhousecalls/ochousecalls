@@ -10,6 +10,8 @@ import { breadcrumb } from '../lib/schema';
 
 const page = pages['/about/'];
 const crumbs = [{ name: 'Home', path: '/' }, { name: 'About', path: '/about/' }];
+const intro =
+  'Dr. Khaneki provides concierge health care 7 days a week for patients 18 and older and seniors in Aliso Viejo, Laguna Niguel, Laguna Hills, Mission Viejo, Rancho Mission Viejo, Ladera Ranch, Laguna Beach, Dana Point, Coto de Caza, Rancho Santa Margarita, Lake Forest, Irvine, Newport Beach, Corona del Mar, San Clemente, and San Juan Capistrano areas. We offer our patients Knowledgeable Internal Medicine expertise in a gentle and caring manner with a focus on you and your needs.';
 const profile = {
   '@type': 'ProfilePage',
   '@id': `${SITE.url}/about/#profile`,
@@ -18,7 +20,7 @@ const profile = {
   mainEntity: { '@id': `${SITE.url}/#physician` },
 };
 ---
-<BaseLayout title={page.title} description={page.description} schema={[profile, breadcrumb(crumbs)]}>
+<BaseLayout title={page.title} description={page.description} clinicDescription={intro} schema={[profile, breadcrumb(crumbs)]}>
   <PageHero title={page.h1} eyebrow="Our Physician" lede="Knowledgeable Internal Medicine expertise in a gentle and caring manner, with a focus on you and your needs." crumbs={crumbs} />
 
   <section class="section">
@@ -33,7 +35,7 @@ const profile = {
       <div class="reveal">
         <p class="eyebrow">{DOCTOR.specialty}</p>
         <h2 class="bio__name">{DOCTOR.name}</h2>
-        <p class="lede">{SITE.about}</p>
+        <p class="lede">{intro}</p>
 
         <div class="cv">
           <section>
@@ -90,6 +92,14 @@ const profile = {
       <p class="eyebrow">Our Team</p>
       <h2>Meet Maryam, Office Manager!</h2>
       <p class="lede">Questions about scheduling, house calls, labs, or referrals? Call our office at <a href={SITE.phoneHref}>{SITE.phone}</a> — we’re happy to help.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="narrow center reveal">
+      <p class="eyebrow">Outside the Office</p>
+      <h2>A little more about Dr. Khaneki</h2>
+      <p class="lede">When he is away from the practice, Dr. Khaneki enjoys mountain biking and hiking. He is just as glad to spend time with his wife and their two golden retrievers. Those days away are a welcome balance to the care he gives his patients.</p>
     </div>
   </section>
 </BaseLayout>

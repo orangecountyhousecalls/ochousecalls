@@ -17,8 +17,9 @@ interface Props {
   published?: string | null;
   modified?: string | null;
   cityContext?: { name: string; lat: number; lng: number };
+  clinicDescription?: string;
 }
-const { title, description, image = '/images/og-image.jpg', type = 'website', schema = [], noindex = false, published, modified, cityContext } = Astro.props;
+const { title, description, image = '/images/og-image.jpg', type = 'website', schema = [], noindex = false, published, modified, cityContext, clinicDescription } = Astro.props;
 const placeName = cityContext?.name ?? 'Orange County';
 const geoPlace = cityContext?.name ?? 'Aliso Viejo';
 const geoLat = cityContext?.lat ?? SITE.geo.lat;
@@ -29,7 +30,7 @@ const isHome = Astro.url.pathname === '/';
 // Home page only: the paired service phrases are reversed. Other pages keep the original order.
 const servicePhrase = isHome ? 'House Call Doctor & Concierge Medicine' : 'Concierge Medicine & House Call Doctor';
 const ogAlt = `${SITE.name} — ${servicePhrase} in ${placeName}, CA (${SITE.phone})`;
-const jsonLd = graph(schema, isHome ? `${servicePhrase} in Orange County` : undefined);
+const jsonLd = graph(schema, isHome ? `${servicePhrase} in Orange County` : undefined, clinicDescription);
 ---
 <!doctype html>
 <html lang="en-US">
