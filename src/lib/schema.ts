@@ -16,7 +16,7 @@ const address = {
 };
 
 /** Site-wide graph: MedicalClinic + Physician + WebSite (included on every page) */
-export const baseGraph = () => [
+export const baseGraph = (websiteDescription: string = SITE.tagline) => [
   {
     '@type': ['MedicalClinic', 'MedicalBusiness', 'LocalBusiness'],
     '@id': ORG_ID,
@@ -88,7 +88,7 @@ export const baseGraph = () => [
     '@id': WEB_ID,
     url: `${SITE.url}/`,
     name: SITE.name,
-    description: SITE.tagline,
+    description: websiteDescription,
     publisher: { '@id': ORG_ID },
     inLanguage: 'en-US',
   },
@@ -168,7 +168,7 @@ export const article = (o: { path: string; title: string; description: string; p
   inLanguage: 'en-US',
 });
 
-export const graph = (...nodes: (object | null | undefined)[]) => ({
+export const graph = (nodes: readonly (object | null | undefined)[] = [], websiteDescription?: string) => ({
   '@context': 'https://schema.org',
-  '@graph': [...baseGraph(), ...nodes.filter(Boolean)],
+  '@graph': [...baseGraph(websiteDescription), ...nodes.filter(Boolean)],
 });

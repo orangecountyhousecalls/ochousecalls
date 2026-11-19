@@ -25,8 +25,11 @@ const geoLat = cityContext?.lat ?? SITE.geo.lat;
 const geoLng = cityContext?.lng ?? SITE.geo.lng;
 const canonical = new URL(Astro.url.pathname, SITE.url).href;
 const ogImage = new URL(image, SITE.url).href;
-const ogAlt = `${SITE.name} — Concierge Medicine & House Call Doctor in ${placeName}, CA (${SITE.phone})`;
-const jsonLd = graph(...schema);
+const isHome = Astro.url.pathname === '/';
+// Home page only: the paired service phrases are reversed. Other pages keep the original order.
+const servicePhrase = isHome ? 'House Call Doctor & Concierge Medicine' : 'Concierge Medicine & House Call Doctor';
+const ogAlt = `${SITE.name} — ${servicePhrase} in ${placeName}, CA (${SITE.phone})`;
+const jsonLd = graph(schema, isHome ? `${servicePhrase} in Orange County` : undefined);
 ---
 <!doctype html>
 <html lang="en-US">
