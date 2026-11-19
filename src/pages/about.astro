@@ -4,6 +4,7 @@ import PageHero from '../components/PageHero.astro';
 import Icon from '../components/Icon.astro';
 import { Image } from 'astro:assets';
 import doc from '../assets/dr-khaneki-2607.jpg';
+import maryam from '../assets/maryam-yazdanfar.jpg';
 import { pages } from '../lib/content';
 import { DOCTOR, SITE } from '../data/site';
 import { breadcrumb } from '../lib/schema';
@@ -85,11 +86,28 @@ const profile = {
     </div>
   </section>
 
-  <section class="section section--sand">
-    <div class="narrow center reveal">
-      <p class="eyebrow">Our Team</p>
-      <h2>Meet Maryam, Office Manager!</h2>
-      <p class="lede">Questions about scheduling, house calls, labs, or referrals? Call our office at <a href={SITE.phoneHref}>{SITE.phone}</a> — we’re happy to help.</p>
+  <section class="section section--sand" aria-labelledby="maryam-name">
+    <div class="container">
+      <div class="team">
+        <div class="team__media reveal">
+          <Image src={maryam} alt="Maryam Yazdanfar, MD, MPH, MS, Office Manager at Orange County House Calls, with her two golden retrievers" width={440} height={340} />
+        </div>
+        <div class="reveal">
+          <p class="eyebrow">Our Team</p>
+          <h2 id="maryam-name" class="bio__name">Maryam Yazdanfar, MD, MPH, MS</h2>
+          <p class="team__role">Office Manager</p>
+          <p>Maryam brings many years of research experience and a deep passion for making sure each patient gets the care they deserve. As Office Manager at Orange County House Calls, she is committed to helping create a thoughtful, supportive, and patient-centered experience for every patient.</p>
+          <p>Outside of work, Maryam enjoys hiking, swimming, biking, and spending quality time with her family. She also loves her two Golden Retrievers, who bring joy and energy to her life.</p>
+          <ul class="chips" aria-label="Interests">
+            <li>Hiking</li>
+            <li>Swimming</li>
+            <li>Biking</li>
+            <li>Family</li>
+          </ul>
+          <p class="team__signoff">Grateful for the journey, driven by purpose, and honored to be part of your care.</p>
+        </div>
+      </div>
+      <p class="lede team__call">Questions about scheduling, house calls, labs, or referrals? Call our office at <a href={SITE.phoneHref}>{SITE.phone}</a> — we’re happy to help.</p>
     </div>
   </section>
 
@@ -131,4 +149,12 @@ const profile = {
   .pubs strong { color: var(--ink); line-height: 1.45; }
   .pubs span { font-size: .87rem; color: var(--muted); }
   .pubs em { font-size: .87rem; color: var(--gold); font-weight: 600; }
+  .team { display: grid; grid-template-columns: minmax(260px, 440px) 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+  @media (max-width: 900px) { .team { grid-template-columns: 1fr; } .team__media { max-width: 440px; } }
+  .team__media :global(img) { border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); width: 100%; height: auto; }
+  .team .bio__name { font-size: clamp(2.05rem, 3.4vw, 3rem); text-wrap: balance; }
+  .team__role { margin: -.2rem 0 1.1rem; font-size: .78rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
+  .team .chips { margin-top: .4rem; }
+  .team__signoff { margin: 1.35rem 0 0; font-family: var(--font-display); font-style: italic; font-size: clamp(1.25rem, 2vw, 1.55rem); line-height: 1.35; color: var(--ink); }
+  .team__call { margin: clamp(2rem, 4vw, 3rem) auto 0; text-align: center; }
 </style>
