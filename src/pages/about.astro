@@ -10,8 +10,6 @@ import { breadcrumb } from '../lib/schema';
 
 const page = pages['/about/'];
 const crumbs = [{ name: 'Home', path: '/' }, { name: 'About', path: '/about/' }];
-const intro =
-  'Dr. Khaneki provides concierge health care 7 days a week for patients 18 and older and seniors in Aliso Viejo, Laguna Niguel, Laguna Hills, Mission Viejo, Rancho Mission Viejo, Ladera Ranch, Laguna Beach, Dana Point, Coto de Caza, Rancho Santa Margarita, Lake Forest, Irvine, Newport Beach, Corona del Mar, San Clemente, and San Juan Capistrano areas. We offer our patients Knowledgeable Internal Medicine expertise in a gentle and caring manner with a focus on you and your needs.';
 const profile = {
   '@type': 'ProfilePage',
   '@id': `${SITE.url}/about/#profile`,
@@ -20,7 +18,7 @@ const profile = {
   mainEntity: { '@id': `${SITE.url}/#physician` },
 };
 ---
-<BaseLayout title={page.title} description={page.description} clinicDescription={intro} schema={[profile, breadcrumb(crumbs)]}>
+<BaseLayout title={page.title} description={page.description} schema={[profile, breadcrumb(crumbs)]}>
   <PageHero title={page.h1} eyebrow="Our Physician" lede="Knowledgeable Internal Medicine expertise in a gentle and caring manner, with a focus on you and your needs." crumbs={crumbs} />
 
   <section class="section">
@@ -35,7 +33,7 @@ const profile = {
       <div class="reveal">
         <p class="eyebrow">{DOCTOR.specialty}</p>
         <h2 class="bio__name">{DOCTOR.name}</h2>
-        <p class="lede">{intro}</p>
+        <p class="lede">{SITE.about}</p>
 
         <div class="cv">
           <section>
