@@ -69,7 +69,7 @@ const audiences = ['Busy professionals', 'Seniors & their families', 'Patients w
     <div class="container hero__inner">
       <div class="hero__copy">
         <p class="eyebrow">Personalized Medical Care, Delivered to Your Doorstep</p>
-        <h1 id="hero-title">House Call Doctor &amp; <span class="gold-text">Concierge Medicine</span> in Orange County</h1>
+        <h1 id="hero-title">Personalized<br />Concierge Medicine<br />in Orange County,<br /><span class="gold-text">Delivered to Your Door</span></h1>
         <p class="hero__lede">House calls, telemedicine and in-office visits with a board-certified Internal Medicine physician. Longer visits, direct physician access, and care that comes to you — anywhere in Orange County.</p>
         <a href="/reviews/" class="proof" aria-label="Read patient reviews">
           <span class="proof__stars" aria-hidden="true">{[1,2,3,4,5].map(() => <Icon name="star" size={16} />)}</span>
@@ -376,7 +376,8 @@ const audiences = ['Busy professionals', 'Seniors & their families', 'Patients w
   .hero__inner { display: flex; justify-content: flex-end; padding: 5rem 0; }
   .hero__copy { max-width: 600px; color: #dbe4ef; animation: rise 1s var(--ease) .15s both; }
   @keyframes rise { from { opacity: 0; transform: translateY(24px); } }
-  .hero h1 { color: #fff; font-size: clamp(2.5rem, 5.2vw, 4.4rem); margin-bottom: 1.25rem; }
+  .hero h1 { color: #fff; font-size: clamp(2.4rem, 5vw, 4rem); margin-bottom: 1.25rem; }
+  @media (max-width: 380px) { .hero h1 { font-size: clamp(1.9rem, 8.2vw, 2.2rem); } }
   .hero .eyebrow { color: var(--gold-2); }
   .hero__lede { font-size: 1.15rem; max-width: 52ch; }
   .hero__ctas { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1.5rem 0 1rem; }
